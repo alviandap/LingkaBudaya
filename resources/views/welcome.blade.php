@@ -35,9 +35,8 @@
                     <a href="#"><button class="btn">Mulai Belajar Sekarang</button></a>
               </div>
             </div>
-          </header>
+          </header>         
         </div>
-
         <div class="shadow one"></div>
         <div class="shadow two"></div>
       </div>

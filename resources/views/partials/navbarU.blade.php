@@ -1,49 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lingkar Budaya | {{ $title }}</title>
-    <link rel="stylesheet" href="../navbarU/style.css">
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-</head>
-<body>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="../navbarU/style.css" />
+    
+  </head>
+  <body>
 
-<div class="wrapper">
-
-  <div class="top_navbar">
-    <div class="top_menu">
-      <div class="logo">
-        <img src="../navbarU/logo.png" alt="">
-        <h1>Lingkar Budaya</h1>
-      </div>
-      <ul>
-        <p><?= auth()->user()->name?></p>
-        <li><a href="#"><i class="uil uil-user"></i></a></li>
-        <li><a href="#"><i class="uil uil-bell"></i></a></li>
-
-      </ul>
+    <div class="navigasi">
+        <div class="navbar">
+            <div class="menu">
+                <div class="logo">
+                    <div>
+                        <img src="../navbarU/logo.png">
+                    </div>
+                    <div class="tulisan">Lingkar Budaya</div>
+                </div>
+                <div class="kanan">
+                  <h3><?= auth()->user()->name?></h3>
+                  <div class="hamburger-menu">
+                    <div class="bar"></div>
+                  </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="links">
+          <ul>
+            <div class="profile">
+              <img src="../navbarU/user.jpg" alt="">
+              <h1><?= auth()->user()->name?></h1>
+            </div>
+            <li><a href="#" style="--i: 0.05s;">Pengaturan</a></li>
+            <li><a href="#" style="--i: 0.05s;">Home</a></li>
+            <li><a href="/categories" style="--i: 0.05s;">Pembelajaran</a></li>
+            <li><a href="#" style="--i: 0.05s;">Help</a></li>
+            <li><a href="/" style="--i: 0.05s;">LogOut</a></li>
+        </ul>
+        </div>
     </div>
   </div>
 
-  <div class="sidebar">
-    <ul>
-        <li><a <?= ($title === "Dashboard") ? 'active':' '?> href="#" ><span class="icon"><i class="uil uil-house-user"></i></span><span class="title">Home</span></a></li>
-        <li><a <?= ($title === "Pembelajaran") ? 'active':' '?> href="#"><span class="icon"><i class="uil uil-book-alt"></i></span><span class="title">Pembelajaran</span></a></li>
-        <li><a <?= ($title === "Foruma") ? 'active':' '?> href="#"><span class="icon"><i class="uil uil-comment-question"></i></span><span class="title">Forum</span></a></li>
-        <li><a <?= ($title === "Need Help") ? 'active':' '?> href="#"><span class="icon"><i class="uil uil-question-circle"></i></i></span><span class="title">Need Help?</span></a></li>
-    </ul>
+  <div class="content">
+    @yield('content')
   </div>
 
-</div>
 
-<div class="main">
-    <div class="content">
-        @yield('content')
-    </div>
-</div>
 
-</div>
-</body>
+    <script src="../navbarU/app.js"></script>
+  </body>
 </html>

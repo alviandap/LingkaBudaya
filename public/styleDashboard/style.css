@@ -1,39 +1,154 @@
-body {
-    background-color: #fbfbfb;
-  }
-  @media (min-width: 991.98px) {
-    main {
-      padding-left: 240px;
-    }
-  }
-  
-  /* Sidebar */
-  .sidebar {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    padding: 58px 0 0; /* Height of navbar */
-    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
-    width: 240px;
-    z-index: 600;
-  }
-  
-  @media (max-width: 991.98px) {
-    .sidebar {
-      width: 100%;
-    }
-  }
-  .sidebar .active {
-    border-radius: 5px;
-    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
-  }
-  
-  .sidebar-sticky {
-    position: relative;
-    top: 0;
-    height: calc(100vh - 48px);
-    padding-top: 0.5rem;
-    overflow-x: hidden;
-    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-  }
+body{
+  font-family: "Poppins", sans-serif;
+  background: url(Body.png);
+}
+/* main content */
+.main-content {
+  padding-top: 80px;
+  width: 100%;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.iklan {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* learn   */
+.learn{
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.card {
+  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
+  background-color: white;
+  border: 2px solid rgb(209, 209, 209);
+  height: 340px;
+  width : 630px;
+  transition: 0.3s;
+  padding: 30px;
+  border-radius: 15px;
+  margin: 20px;
+
+}
+
+.kiri .card h2{
+  margin-bottom: 20px;
+}
+
+.step{
+  margin-bottom: 20px;
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.step .no {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: 2px solid rgb(5, 211, 29);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.step .no h1{
+  font-size: 20px;
+}
+
+.step .langkah p{
+  font-size: 16px;
+  color: rgb(0, 0, 0);
+}
+
+.btn1 button{
+  width: 100%;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 16px;
+  height: 40px;
+  color: rgb(255, 255, 255);
+  border: none;
+  background: linear-gradient(to bottom right, #e57653 0%, #c85734 68%);
+}
+
+.btn1 button:hover{
+  color: #e57653;
+  background: rgb(255, 255, 255);
+  border: 2px solid #e57653;
+}
+
+.stat{
+  display: flex;
+  margin-bottom: 10px;
+  align-items: center;
+}
+.stat img{
+  height: 90px;
+  width: 90px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.stat .kata h3{
+  text-transform: uppercase;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.stat .kata p{
+  font-size: 13px;
+  color: #252F3E;
+}
+
+.diskusi{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #F9F0DE;
+  border-radius: 10px;
+}
+
+.diskusi .diskir{
+  width: 50%;
+}
+
+.diskusi .diskan{
+  width: 50%;
+}
+
+.diskusi .diskan img{
+ width: 100%;
+}
+
+.diskir h4{
+  font-size: 13px;
+  padding: 15px;
+}
+
+.diskir .btn2 button{
+  margin-top: 10px;
+  width: 80%;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 16px;
+  height: 40px;
+  color: #D67251;
+  border: 2px solid #D67251;
+  background: white;
+  margin-left: 20px;
+}
+
+.btn2 button:hover{
+  color: white;
+  background :#D67251;
+}
+

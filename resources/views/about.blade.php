@@ -38,7 +38,7 @@
 
                             <div class="card">
                               <div class="foto">
-                                <img src="../styleAbout/vian.jpg" alt=""></img>
+                                <img src="../styleAbout/dhanu.jpeg" alt=""></img>
                               </div>
                               <div class="sosmed">
                                   <a href="https://www.instagram.com/dhnstr_/" target="_blank"><i class="uil uil-instagram-alt"></i></a>
