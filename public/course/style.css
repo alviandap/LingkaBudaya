@@ -2,31 +2,28 @@
     padding-top: 80px;
     width: 100%;
     height: auto;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 .card {
     border-radius:10px;
 }
 
-.foto{
-    margin-top: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.card img{
+    border-radius:15px;
+    padding: 5px;
 }
 
-img.card-img{
-    background-color: red;
-    width: 95%;
-    border-radius:10px;
-}
-a{
-    text-decoration: none;
-    color: black;
+p.card-text{}
+
+.kankir{
+    display :flex;
+    justify-content: space-between;
 }
 
-.card-title{
-    text-align: center;
+.row{
+    width: 100%;
+    padding-right: 20px;
 }
+

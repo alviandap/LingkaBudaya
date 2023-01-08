@@ -2,7 +2,7 @@
 
 @section('content')
 
-<link rel="stylesheet" href="../course/style.css">
+<link rel="stylesheet" href="../courses/style.css">
 <div class="main-container">
     <div class="row">
 

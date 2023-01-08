@@ -14,7 +14,8 @@
 <link rel="stylesheet" href="../course/style.css">
 
 <div class="main-container">
-    <div class="row">
+    <div class="kankir">
+ <div class="row">
     @foreach($posts  as $post)
     <a href="/posts/{{ $post->slug }}" > 
         <div class="card">
@@ -25,6 +26,15 @@
     </a>
     @endforeach
     </div> 
+    <div class="card" style="width: 35rem;">
+        <img src="https://muhammadiyah.or.id/wp-content/uploads/2021/06/IMG-20210624-WA0014.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <p class="card-text">{{ $quote}}</p>
+    </div>
+
+    </div>
+   
+</div>
     
 </div>
 

@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->String('name') -> unique();
             $table->String('slug') -> unique();
+            $table->text('quotes');
+            $table->text('gambar');
             $table->timestamps();
         });
     }

@@ -35,10 +35,9 @@
               <img src="../navbarU/user.jpg" alt="">
               <h1><?= auth()->user()->name?></h1>
             </div>
-            <li><a href="#" style="--i: 0.05s;">Pengaturan</a></li>
-            <li><a href="#" style="--i: 0.05s;">Home</a></li>
+            <li><a href="/editprofile" style="--i: 0.05s;">Pengaturan Profile</a></li>
+            <li><a href="/dashboard" style="--i: 0.05s;">Home</a></li>
             <li><a href="/categories" style="--i: 0.05s;">Pembelajaran</a></li>
-            <li><a href="#" style="--i: 0.05s;">Help</a></li>
             <li><a href="/" style="--i: 0.05s;">LogOut</a></li>
         </ul>
         </div>

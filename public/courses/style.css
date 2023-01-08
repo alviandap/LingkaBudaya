@@ -1,0 +1,32 @@
+ .main-container{
+    padding-top: 80px;
+    width: 100%;
+    height: auto;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.card {
+    border-radius:10px;
+}
+
+.foto{
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img.card-img{
+    background-color: red;
+    width: 95%;
+    border-radius:10px;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.card-title{
+    text-align: center;
+}

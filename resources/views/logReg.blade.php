@@ -22,7 +22,6 @@
             <h2 class="title">Login</h2>
             <a href="/home">Lingkar Budaya</a>
             @if(session()->has('success'))
-                      alert()
                         <p>REGISTRASI SUKSES</p>
                     @endif
             <div class="input-field"><i class="fas fa-user"></i><input type="text"  name="username" id = "username"  placeholder="Username" /></div>
@@ -104,12 +103,5 @@
     </div>
 
     <script src="../styleLogreg/app.js"></script>
-    <script> 
-        function alert() { 
-            alert("Selamat datang di SistemIT.com\n " + 
-                "Tutorial terbaik website dan php " +  
-                         "untuk penggemar IT!"); 
-        } 
-    </script> 
   </body>
 </html>

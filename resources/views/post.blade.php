@@ -1,29 +1,24 @@
 @extends('partials/navbarU')
 
 @section('content')
-<style>
-   .video{
-        display :flex;
-        justify-content: center;
-        margin-bottom:30px;
-        align-items : center;
-    }
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+<link rel="stylesheet" href="../post/style.css">
 
-    .card-body{
-        margin : 10px;
-        text-align:justify;
-    }
-</style>
-<a href="/categories/{{ $post->category->slug }}"><h1>{{ $post->category->name }}</h1></a>
-
-<h1 class=mb-5>{{ $post->title }}</h1>
+<div class="content">
+  <div class="back">
+    <a href="/categories/{{ $post->category->slug }}"><i class="bi bi-arrow-left"></i></a>
+  </div>
+  
+  <div class="title">
+    <h1 class=mb-5>{{ $post->title }}</h1>
+  </div>
 <div class="video">
     <iframe width="860" height="515" src=" {{ $post->link }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>
-<div class="card" style="width: auto;">
-  <div class="card-body">
-    {!! $post->body !!}
-  </div>
+
+    <p>
+      {!! $post->body !!}
+    </p>
 </div>
-<a href="/posts"> Back to post</a>
+
 @endsection
