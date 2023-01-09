@@ -199,9 +199,17 @@ body{
   color: rgb(255, 255, 255);
 }
 
-.links a:hover {
+.links button {
+  text-transform: uppercase;
+  border:none;
+  color: rgb(255, 255, 255);
+  background-color: transparent;
+}
+
+.links a:hover, button:hover {
   color: rgb(117, 192, 25);
 }
+
 
 .navigasi.active .links  {
   right: 0;

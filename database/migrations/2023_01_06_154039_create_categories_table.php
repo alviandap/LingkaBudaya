@@ -19,6 +19,7 @@ return new class extends Migration
             $table->String('slug') -> unique();
             $table->text('quotes');
             $table->text('gambar');
+            $table->text('quiz');
             $table->timestamps();
         });
     }
