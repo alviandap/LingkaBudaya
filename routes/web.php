@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardPostController;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
@@ -65,8 +66,6 @@ Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 
-
-
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('posts/{post:slug}', [PostController::class, 'show']);
 
@@ -86,3 +85,10 @@ route::get('/categories/{category:slug}', function (Category $category) {
         'kuis' => $category->quiz
     ]);
 });
+
+Route::get('/admin', function () {
+    return view('admin.index');
+})->middleware('auth');
+
+Route::get('/admin/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('auth');
+Route::resource('/admin/posts', DashboardPostController::class);
