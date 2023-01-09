@@ -17,8 +17,8 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              @foreach($posts as $post)
+            @foreach($posts as $post)
+              <tr>
                   <td>{{ $loop->iteration }}</td>
                   <td>{{ $post->title }}</td>
                   <td>{{ $post->Category->name }}</td>
@@ -33,8 +33,8 @@
                       <i class="bi bi-trash3"></i>
                     </a>
                 </td>
-              @endforeach
-            </tr>
+            </tr> 
+            @endforeach
           </tbody>
         </table>
 @endsection

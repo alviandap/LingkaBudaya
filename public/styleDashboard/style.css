@@ -53,19 +53,32 @@ body{
   width: 40px;
   border-radius: 50%;
   border: 2px solid rgb(5, 211, 29);
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  /* display: flex;
+  align-items: center; */
   margin-right: 20px;
+  text-align: center;
 }
 
 .step .no h1{
+  height: 100%;
   font-size: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.step .langkah{
+  height: 100%;
 }
 
 .step .langkah p{
-  font-size: 16px;
+  font-size: 15px;
   color: rgb(0, 0, 0);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .btn1 button{

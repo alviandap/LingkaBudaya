@@ -41,7 +41,16 @@ class DashboardPostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validateddata = $request->validate([
+            'title' => 'required|max:255',
+            'slug' => 'required|unique:posts',
+            'link' => 'required',
+            'category_id' => 'required',
+            'body' => 'required'
+        ]);
+
+        Post::create($validateddata);
+        return redirect('/admin/posts')->with('succses', 'new post has been added');
     }
 
     /**
