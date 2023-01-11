@@ -43,7 +43,7 @@
 
       <div class="links">
         <ul>
-          <li>
+        <li>
             <a href="/home" style="--i: 0.05s;">Home</a>
           </li>
           <li>
@@ -51,6 +51,9 @@
           </li>
           <li>
             <a href="/faq" style="--i: 0.3s;">FAQ</a>
+          </li>
+          <li>
+            <a href="/testi" style="--i: 0.3s;">TESTIMONIAL</a>
           </li>
           <li>
             <a href="/login-register" style="--i: 0.3s;">Login</a>

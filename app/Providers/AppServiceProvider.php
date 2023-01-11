@@ -2,7 +2,11 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
+use Nette\Utils\Paginator;
+use App\Models\User;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +27,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Gate::define('admin', function (User $user) {
+            return $user->is_admin;
+        });
     }
 }

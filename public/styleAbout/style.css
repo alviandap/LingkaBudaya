@@ -371,7 +371,7 @@ ul {
 
 }
 
-.card {
+.kartu {
   width:250px ;
   height: auto;
   color:#ffffff;
@@ -379,7 +379,7 @@ ul {
 
 }
 
-.card  img{
+.kartu  img{
   height: 150px;
   width: 150px;
   margin-top: 10px;
@@ -387,7 +387,7 @@ ul {
 
 }
 
-.card .sosmed a {
+.kartu .sosmed a {
   display: inline-flex;
   align-items: center;
   cursor: pointer;
@@ -395,7 +395,7 @@ ul {
   color: white;
 }
 
-.card .sosmed a:hover {
+.kartu .sosmed a:hover {
   color: green !important;;
 }
 

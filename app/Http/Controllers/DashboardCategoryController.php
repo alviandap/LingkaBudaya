@@ -7,7 +7,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 
-class DashboardPostController extends Controller
+class DashboardCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +17,8 @@ class DashboardPostController extends Controller
     public function index()
     {
         $this->authorize('admin');
-        return view('admin.posts', [
-            'posts' => Post::all()
+        return view('admin.category.index', [
+            'categories' => Category::all()
         ]);
     }
 
@@ -29,7 +29,7 @@ class DashboardPostController extends Controller
      */
     public function create()
     {
-        return view('admin.create', [
+        return view('admin.category.create', [
             'categories' => Category::all()
         ]);
     }
@@ -43,41 +43,41 @@ class DashboardPostController extends Controller
     public function store(Request $request)
     {
         $validateddata = $request->validate([
-            'title' => 'required|max:255',
+            'name' => 'required|max:255',
             'slug' => 'required|unique:posts',
-            'link' => 'required',
-            'category_id' => 'required',
-            'body' => 'required'
+            'gambar' => 'required',
+            'quotes' => 'required',
+            'quiz' => 'required'
+
         ]);
 
-        Post::create($validateddata);
-        return redirect('/admin/posts')->with('succses', 'new post has been added');
+        Category::create($validateddata);
+        return redirect('/admin/categories')->with('succses', 'new post has been added');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show(Category $category)
     {
-        return view('admin.show', [
-            'post' => $post
-        ]);
+        // return view('admin.showCat', [
+        //     'category' => $category,
+        // ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit(Category $category)
     {
-        return view('admin.edit', [
-            'post' => $post,
-            'categories' => Category::all()
+        return view('admin.category.edit', [
+            'category' => $category,
         ]);
     }
 
@@ -85,45 +85,45 @@ class DashboardPostController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, Category $category)
     {
         $rules= [
-            'title' => 'required|max:255',
-            // 'slug' => 'required|unique:posts',
-            'link' => 'required',
-            'category_id' => 'required',
-            'body' => 'required'
+            'name' => 'required|max:255',
+            'slug' => 'required|unique:category',
+            'gambar' => 'required',
+            'quotes' => 'required',
+            'quiz' => 'required'
         ];
 
-        if ($request->slug != $post->slug) {
-            $rules['slug'] = 'required|unique:posts';
+        if ($request->slug != $category->slug) {
+            $rules['slug'] = 'required|unique:category';
         }
 
         $validateddata = $request->validate($rules);
 
-        Post::where('id', $post->id)
+        Category::where('id', $category->id)
             ->update($validateddata);
-        return redirect('/admin/posts')->with('succses', 'Post has been Update');
+        return redirect('/admin/categories')->with('succses', 'Post has been Update');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy(Category $category)
     {
-        Post::destroy($post->id);
-        return redirect('/admin/posts')->with('succses', 'post has been delete');
+        Category::destroy($category->id);
+        return redirect('/admin/categories')->with('succses', 'post has been delete');
     }
 
     public function checkSlug(Request $request)
     {
-        $slug = SlugService::createSlug(Post::class, 'slug', $request->title);
+        $slug = SlugService::createSlug(Category::class, 'slug', $request->name);
         return response()->json(['slug' => $slug]);
     }
 }

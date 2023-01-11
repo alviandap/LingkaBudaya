@@ -22,7 +22,7 @@
 
                           <div class="atas">
 
-                            <div class="card">
+                            <div class="kartu">
                                 <div class="foto">
                                   <img src="../styleAbout/vian.jpg" alt=""></img>
                                 </div>
@@ -36,7 +36,7 @@
                                 </div>
                             </div>
 
-                            <div class="card">
+                            <div class="kartu">
                               <div class="foto">
                                 <img src="../styleAbout/dhanu.jpeg" alt=""></img>
                               </div>
@@ -50,7 +50,7 @@
                               </div>
                             </div>
 
-                            <div class="card">
+                            <div class="kartu">
                               <div class="foto">
                                 <img src="../styleAbout/ciga.jpeg" alt=""></img>
                               </div>
@@ -66,7 +66,7 @@
                           </div>
 
                           <div class="bawah">
-                            <div class="card">
+                            <div class="kartu">
                               <div class="foto">
                                 <img src="../styleAbout/rizal.jpeg" alt=""></img>
                               </div>
@@ -80,7 +80,7 @@
                               </div>
                             </div>
 
-                            <div class="card">
+                            <div class="kartu">
                               <div class="foto">
                                 <img src="../styleAbout/hanif.jpeg" alt=""></img>
                               </div>

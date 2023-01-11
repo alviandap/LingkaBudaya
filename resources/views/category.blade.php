@@ -27,7 +27,7 @@
     @endforeach
     </div> 
     <div class="card" style="width: 35rem;">
-        <img src="https://muhammadiyah.or.id/wp-content/uploads/2021/06/IMG-20210624-WA0014.jpg" class="card-img-top" alt="...">
+        <img src="{{ $gambar }}" class="card-img-top" alt="...">
         <div class="card-body">
             <p class="card-text">{{ $quote}}</p>
     </div>

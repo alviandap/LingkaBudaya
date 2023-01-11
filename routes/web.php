@@ -1,13 +1,15 @@
 <?php
 
-use App\Http\Controllers\DashboardPostController;
 use App\Models\Category;
+use App\Models\ratingStar;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DashboardPostController;
+use App\Http\Controllers\DashboardCategoryController;
+use App\Http\Controllers\ratingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +53,13 @@ Route::get('/about', function () {
     ]);
 });
 
+Route::get('/testi', function () {
+    return view('review', [
+        "title" => "Testimonials",
+        "ratingStar" => ratingStar::all()
+    ]);
+});
+
 
 
 Route::get('/editprofile', [ProfileController::class, 'index']);
@@ -62,7 +71,7 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
-Route::post('/register', [RegisterController::class, 'store']);  
+Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/dashboard', function () {
     return view('dashboard', [
@@ -70,29 +79,38 @@ Route::get('/dashboard', function () {
     ]);
 })->middleware('auth');
 
-Route::get('/posts', [PostController::class, 'index']);
-Route::get('posts/{post:slug}', [PostController::class, 'show']);
+
+Route::get('/testimonials', [ratingController::class, 'index'])->middleware('auth');
+Route::post('/testimonials', [ratingController::class, 'store'])->middleware('auth');
+
+
+Route::get('/posts', [PostController::class, 'index'])->middleware('auth');
+Route::get('posts/{post:slug}', [PostController::class, 'show'])->middleware('auth');
 
 Route::get('/categories', function () {
     return view('categorys', [
         'title' => 'Post Categories',
         'categories' => Category::all()
     ]);
-});
+})->middleware('auth');
 
 route::get('/categories/{category:slug}', function (Category $category) {
     return view('category', [
         'title' => $category->name,
         'posts' => $category->posts,
         'category' => $category->name,
+        'gambar' => $category->gambar,
         'quote' => $category->quotes,
         'kuis' => $category->quiz
     ]);
-});
+})->middleware('auth');
 
 Route::get('/admin', function () {
     return view('admin.index');
-})->middleware('auth');
+})->middleware('admin');
 
-Route::get('/admin/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('auth');
-Route::resource('/admin/posts', DashboardPostController::class);
+Route::get('/admin/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('admin');
+Route::resource('/admin/posts', DashboardPostController::class)->middleware('admin');
+
+Route::resource('/admin/categories', DashboardCategoryController::class)->middleware('admin');
+Route::get('/admin/categories/checkSlug', [DashboardCategoryControllerr::class, 'checkSlug'])->middleware('admin');
