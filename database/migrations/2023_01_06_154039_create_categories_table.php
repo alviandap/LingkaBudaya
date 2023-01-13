@@ -18,7 +18,7 @@ return new class extends Migration
             $table->String('name') -> unique();
             $table->String('slug') -> unique();
             $table->text('quotes');
-            $table->text('gambar');
+            $table->String('gambar')->nullable();
             $table->text('quiz');
             $table->timestamps();
         });

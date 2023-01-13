@@ -11,7 +11,7 @@ class ratingController extends Controller
     {
         return view('testimonials', [
             "title" => "testimonials",
-            "ratingStar" => ratingStar::all()
+            "ratingStar" => ratingStar::latest()->get()
         ]);
     }
 
@@ -20,10 +20,10 @@ class ratingController extends Controller
         // return $request;
         $validateddata = $request->validate([
             'name' => 'required|min:3|max:255',
-            'ratingStar' => 'required|min:1|max:5',
+            'ratingStar' => 'required',
             'comment' => 'required|min:3|max:255',
         ]);
         ratingStar::create($validateddata);
-        return redirect('/testimonials')->with('success', 'testimonials sukses');
+        return redirect('/testimonials')->with('success', 'testimonials telah sukses ditambahkan');
     }
 }

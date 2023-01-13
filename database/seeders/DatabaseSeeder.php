@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\ratingStar;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Category;
@@ -24,12 +25,14 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        User::created([
+        User::create([
             'name' => 'admin',
             'username' => 'admin',
             'email' => 'admin@gmail.com',
             'password' => bcrypt('admin12345')
+            
         ]);
+
 
         Post::create([
             'title' => 'Sejarah Jakarta',
@@ -54,6 +57,12 @@ class DatabaseSeeder extends Seeder
             'quotes' => '“Kalo emang ente mau nantangin, eh aye sanggup biar ada perlawanan.”',
             'gambar' => 'https://drive.google.com/drive/folders/1QePYecSCzHkx7hwjlgxhDufSpCTAwC3u',
             'quiz' => 'https://forms.gle/yKisQhoyP7mQ9LsC8'
+        ]);
+
+        ratingStar::create([
+            'name' => 'joko',
+            'ratingStar' => 5,
+            'comment' => 'mantappu djiwa'
         ]);
     }
 }

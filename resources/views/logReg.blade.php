@@ -12,6 +12,11 @@
   </head>
   <body>
 
+@if(session()->has('success'))
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script>swal("success", "{!! session('success') !!}", "success");</script>
+@endif 
+
     <div class="container">
       
       <div class="forms-container">
@@ -21,9 +26,6 @@
             @csrf
             <h2 class="title">Login</h2>
             <a href="/home">Lingkar Budaya</a>
-            @if(session()->has('success'))
-                        <p>REGISTRASI SUKSES</p>
-                    @endif
             <div class="input-field"><i class="fas fa-user"></i><input type="text"  name="username" id = "username"  placeholder="Username" /></div>
             <div class="input-field"><i class="fas fa-lock"></i><input type="password" name="password" id = "password" placeholder="Password" /></div>
             <input type="submit" value="Login" class="btn solid" />

@@ -1,6 +1,7 @@
 @extends('partials/navbarU')
 
 @section('content')
+
 <link rel="stylesheet" href="../styleDashboard/style.css">
 <div class="main-content">
   <div class="iklan">
@@ -43,7 +44,7 @@
 
             
         <div class="btn1">
-          <a href="#"><button>Mulai Belajar Sekarang</button></a>
+          <a href="/categories"><button>Mulai Belajar Sekarang</button></a>
         </div>
 
       </div>
@@ -52,7 +53,11 @@
     <div class="kanan">
       <div class="card">
         <div class="stat">
-          <img src="../styleDashboard/user.jpg" alt="">
+          @if(auth()->user()->fotoProfile)
+          <img src="{{ asset('storage/'.auth()->user()->fotoProfile) }}" class = "img-preview d-block" style="object-fit:containt; object-position: center; width: 90px; height: 90px; border-radius:50%; margin-right: 10px;">
+          @else
+          <img src="{{ asset('storage/default/blank.jpeg') }}" class = "img-preview d-block" style="object-fit:containt; object-position: center; width: 90px; height: 90px; border-radius:50%; margin-right: 10px;">
+          @endif
           <div class="kata">
              <h3><?= auth()->user()->name?></h3>
              <p>Tingkatkan belajarmu dengan melalui fitur pembelajaran atau berkontribusi di forum diskusi tanya jawab</p>
@@ -62,11 +67,11 @@
         <div class="diskusi">
           <div class="diskir">
             <h4>
-            Ayo mulai berdiskusi dengan sesama pengguna lain di Lingkar Budaya!
+            Berikan Saran dan Masukan untuk Website Lingkar Budaya di fitur Rating 
             </h4>
 
             <div class="btn2">
-              <a href="#"><button>Forum Diskusi</button></a>
+              <a href="/testimonials"><button>Rating</button></a>
             </div>
 
           </div>

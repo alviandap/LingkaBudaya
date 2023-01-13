@@ -11,25 +11,25 @@
 @endif 
 
 <div class="table-responsive col-lg-8">
-  <a href="/admin/categories/create" class="btn btn-primary mb-3">Create New Category</a>
         <table class="table table-striped table-sm">
           <thead>
             <tr>
               <th scope="col">No</th>
-              <th scope="col">Category Name</th>
+              <th scope="col">Name</th>
+              <th scope="col">Comment</th>
+              <th scope="col">Rating</th>
               <th scope="col">Action</th>
             </tr>
           </thead>
           <tbody>
-            @foreach($categories as $category)
+            @foreach($ratingStar as $testi)
               <tr>
                   <td>{{ $loop->iteration }}</td>
-                  <td>{{ $category->name }}</td>
+                  <td>{{ $testi->name }}</td>
+                  <td>{{ $testi->comment }}</td> 
+                  <td>{{ $testi->ratingStar }}</td>
                   <td>
-                    <a href="/admin/categories/{{ $category->slug }}/edit" class = "badge bg-warning" >
-                      <i class="bi bi-pen"></i>
-                    </a>
-                    <form action="/admin/categories/{{ $category->slug }}" method = "post" class="d-inline">
+                    <form action= "{{ url('/admin/testi/'.$testi->id) }}" method = "post" class="d-inline">
                       @method('delete')
                       @csrf
                       <button class = "badge bg-danger border-0" onclick="return confirm('Are you Sure?')"><i class="bi bi-trash3"></i></button>

@@ -3,6 +3,11 @@
 @section('content')
 <link rel="stylesheet" href="../styleTesti/style.css">
 <div class="main-content">
+@if(session()->has('success'))
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script>swal("success", "{!! session('success') !!}", "success");</script>
+@endif 
+
 
   <div class="list">
         @foreach($ratingStar as $rating)
@@ -23,7 +28,7 @@
 
   <!-- Button trigger modal -->
 <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
+Berikan Rating
 </button>
 
 <!-- Modal -->
@@ -31,7 +36,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Lingkar Budaya</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -44,7 +49,14 @@
 
         <div class="mb-3">
           <label for="ratingStar" class="form-label">Rating</label>
-          <input type="text" class="form-control @error('ratingStar') is-invalid @enderror" id="ratingStar" name="ratingStar" required autofocus >
+          <select class="form-select" name="ratingStar" >
+                <option selected >Pilih Rating..</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+          </select>
           @error('ratingStar')
               <div class="invalid-feedback">
                 {{ $message }}

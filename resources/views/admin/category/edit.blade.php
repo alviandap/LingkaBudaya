@@ -5,7 +5,7 @@
     <h3 class="h2">Edit Category : {{ $category->name }}</h3>
 </div>
 <div class="col-lg-8">
-<form action="/admin/categories/{{ $category->slug }}" method="post">
+<form action="/admin/categories/{{ $category->slug }}" method="post" enctype="multipart/form-data">
     @method('put')
     @csrf
   <div class="mb-3">
@@ -30,7 +30,13 @@
 
   <div class="mb-3">
     <label for="gambar" class="form-label">Gambar</label>
-    <input type="text" class="form-control @error('gambar') is-invalid @enderror" id="gambar" name="gambar" required value="{{ old('title', $category->gambar) }}">
+    <input type="hidden" name="oldImage" value = "{{ $category->gambar }}">
+    @if($category->gambar)
+      <img src="{{ asset('storage/'.$category->gambar) }}" class = "img-preview img-fluid mb-3 col-sm-5 d-block">
+    @else
+      <img class = "img-preview img-fluid mb-3 col-sm-5">
+    @endif
+    <input class="form-control @error('gambar') is-invalid @enderror" type="file" id="gambar" name="gambar" onchange="previewImage()">
     @error('gambar')
         <div class="invalid-feedback">
           {{ $message }}
@@ -63,12 +69,28 @@
 </div>
 
 <script>
-const title = document.querySelector('#name');
-const slug = document.querySelector('#slug');
-  title.addEventListener('change', function(){
-    fetch('/admin/categories/checkSlug?title=' + title.value)
-    .then(response => response.json())
-    .then(data => slug.value = data.slug)
-  });
+  const title = document.querySelector('#name');
+  const slug = document.querySelector('#slug');
+    title.addEventListener('change', function(){
+      fetch('/admin/posts/checkSlug?title=' + title.value)
+      .then(response => response.json())
+      .then(data => slug.value = data.slug)
+    });
+
+
+  function previewImage(){
+    const gambar = document.querySelector("#gambar");
+    const imgPreview = document.querySelector(".img-preview");
+
+    imgPreview.style.display = 'block';
+
+    const oFReader = new FileReader();
+    oFReader.readAsDataURL(gambar.files[0]); 
+
+    oFReader.onload = function(oFREvent){
+      imgPreview.src = oFREvent.target.result;
+    }
+  };
+
 </script>
 @endsection

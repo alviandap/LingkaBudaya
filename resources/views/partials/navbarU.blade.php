@@ -32,8 +32,13 @@
         <div class="links">
           <ul>
             <div class="profile">
-              <img src="../navbarU/user.jpg" alt="">
-              <h1><?= auth()->user()->name?></h1>
+            @if(auth()->user()->fotoProfile)
+            <img src="{{ asset('storage/'.auth()->user()->fotoProfile) }}" class = "img-preview d-block" style="object-fit:containt; object-position: center; width: 50px; height: 50px; border-radius:50%; margin-left: 30px;margin-right: 10px;">
+            @else
+            <img src="{{ asset('storage/default/blank.jpeg') }}" class = "img-preview d-block" style="object-fit:containt; object-position: center; width: 50px; height: 50px; border-radius:50%; margin-left: 30px;margin-right: 10px;">
+            @endif
+
+            <h1><?= auth()->user()->name?></h1>
             </div>
             @can('admin')
             <li><a href="/admin" style="--i: 0.05s;">Mode Admin</a></li>

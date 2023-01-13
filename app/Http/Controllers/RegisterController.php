@@ -26,7 +26,7 @@ class RegisterController extends Controller
 
         $validateddata['password'] = bcrypt($validateddata['password']);
         User::create($validateddata);
-        return redirect('/login-register')->with('success', 'registrasi sukses');
+        return redirect('/login-register')->with('success', 'Registrasi Sukses');
     }
 
 }

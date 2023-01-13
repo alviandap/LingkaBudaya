@@ -30,7 +30,7 @@
 
   <div class="mb-3">
     <label for="link" class="form-label">Link Video YouTube</label>
-    <input type="text" class="form-control @error('link') is-invalid @enderror" id="link" name="link" required autofocus>
+    <input type="text" class="form-control @error('link') is-invalid @enderror" id="link" name="link" required autofocus value="https://www.youtube.com/embed/">
     @error('link')
         <div class="invalid-feedback">
           {{ $message }}

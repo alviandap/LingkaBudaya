@@ -17,7 +17,7 @@ class DashboardPostController extends Controller
     public function index()
     {
         $this->authorize('admin');
-        return view('admin.posts', [
+        return view('admin.post.posts', [
             'posts' => Post::all()
         ]);
     }
@@ -29,7 +29,7 @@ class DashboardPostController extends Controller
      */
     public function create()
     {
-        return view('admin.create', [
+        return view('admin.post.create', [
             'categories' => Category::all()
         ]);
     }
@@ -51,7 +51,7 @@ class DashboardPostController extends Controller
         ]);
 
         Post::create($validateddata);
-        return redirect('/admin/posts')->with('succses', 'new post has been added');
+        return redirect('/admin/posts')->with('success', 'new post has been added');
     }
 
     /**
@@ -62,7 +62,7 @@ class DashboardPostController extends Controller
      */
     public function show(Post $post)
     {
-        return view('admin.show', [
+        return view('admin.post.show', [
             'post' => $post
         ]);
     }
@@ -75,7 +75,7 @@ class DashboardPostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('admin.edit', [
+        return view('admin.post.edit', [
             'post' => $post,
             'categories' => Category::all()
         ]);
@@ -106,7 +106,7 @@ class DashboardPostController extends Controller
 
         Post::where('id', $post->id)
             ->update($validateddata);
-        return redirect('/admin/posts')->with('succses', 'Post has been Update');
+        return redirect('/admin/posts')->with('success', 'Post has been Update');
     }
 
     /**
@@ -118,7 +118,7 @@ class DashboardPostController extends Controller
     public function destroy(Post $post)
     {
         Post::destroy($post->id);
-        return redirect('/admin/posts')->with('succses', 'post has been delete');
+        return redirect('/admin/posts')->with('succsess', 'post has been delete');
     }
 
     public function checkSlug(Request $request)

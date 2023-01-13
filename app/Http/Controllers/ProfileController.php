@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
@@ -15,22 +16,27 @@ class ProfileController extends Controller
 
     public function update(Request $request)
     {
+        $user = auth()->user();
 
-        $request->validate([
+        $rules = [
             'name' => 'required|min:3|max:255',
             'username' => 'required|min:3|max:255',
             'email' => 'required|email|min:3|max:255',
-        ]);
+            'fotoProfile' => 'image|file|max:2048'
+        ];
 
-        $user = auth()->user();
-        $user->update([
-            'name' => $request->name,
-            'username' => $request->username,
-            'email' => $request->email
+        $validateddata = $request->validate($rules);
 
-        ]);
+        if ($request->file('fotoProfile')) {
+            // if ($request->oldImage) {
+            //     Storage::delete($request->oldImage);
+            // }
+            $validateddata['fotoProfile'] = $request->file('fotoProfile')->store('profile-images');
+        }
 
-        return redirect('/editprofile')->with('success', 'Profile tlah TerUpdate');
+        $user->update($validateddata);
+
+        return redirect('/editprofile')->with('success', 'Profile Telah TerUpdate');
     }
 
 

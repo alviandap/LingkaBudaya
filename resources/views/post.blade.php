@@ -10,7 +10,7 @@
   </div>
   
   <div class="title">
-    <h1 class=mb-5>{{ $post->title }}</h1>
+    <h1 class=mb-4>{{ $post->title }}</h1>
   </div>
 <div class="video">
     <iframe width="860" height="515" src=" {{ $post->link }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>

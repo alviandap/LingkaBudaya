@@ -9,6 +9,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\DashboardCategoryController;
+use App\Http\Controllers\DashboardTestiController;
+use App\Http\Controllers\UpdatePasswordController;
 use App\Http\Controllers\ratingController;
 
 /*
@@ -56,7 +58,7 @@ Route::get('/about', function () {
 Route::get('/testi', function () {
     return view('review', [
         "title" => "Testimonials",
-        "ratingStar" => ratingStar::all()
+        "ratingStar" => ratingStar::latest()->get()
     ]);
 });
 
@@ -64,6 +66,8 @@ Route::get('/testi', function () {
 
 Route::get('/editprofile', [ProfileController::class, 'index']);
 Route::post('/editprofile', [ProfileController::class, 'update']);
+
+Route::put('/updatepassword', [UpdatePasswordController::class, 'update']);
 
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
@@ -105,6 +109,8 @@ route::get('/categories/{category:slug}', function (Category $category) {
     ]);
 })->middleware('auth');
 
+
+
 Route::get('/admin', function () {
     return view('admin.index');
 })->middleware('admin');
@@ -114,3 +120,8 @@ Route::resource('/admin/posts', DashboardPostController::class)->middleware('adm
 
 Route::resource('/admin/categories', DashboardCategoryController::class)->middleware('admin');
 Route::get('/admin/categories/checkSlug', [DashboardCategoryControllerr::class, 'checkSlug'])->middleware('admin');
+
+// Route::resource('/admin/testi', DashboardTestiController::class)->middleware('admin');
+
+Route::get('/admin/testi', [DashboardTestiController::class, 'index'])->middleware('auth');
+Route::delete('/admin/testi/{id}', [DashboardTestiController::class, 'delete'])->middleware('auth');
