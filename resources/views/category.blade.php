@@ -33,7 +33,7 @@
             <div class="card-body">
                 <p class="card-text">{{ $quote}}</p>
                 <div class="btn btn-primary">
-                    <a href="{{ $kuis }}">QUIZ</a>
+                    <a href="{{ $kuis }}" target="_blank">QUIZ</a>
                 </div>
             </div>
         </div>

@@ -82,10 +82,10 @@
 
                             <div class="kartu">
                               <div class="foto">
-                                <img src="../styleAbout/hanif.jpeg" alt=""></img>
+                                <img src="../styleAbout/irham.jpg" alt=""></img>
                               </div>
                               <div class="sosmed">
-                                  <a href="https://www.instagram.com/globe.trz/" target="_blank"><i class="uil uil-instagram-alt"></i></a>
+                                  <a href="https://www.instagram.com/irhamnaufal8/" target="_blank"><i class="uil uil-instagram-alt"></i></a>
                                   <a href="#" target="_blank"> <i class="uil uil-youtube"></i></a>
                               </div>
                               <div class="nama">

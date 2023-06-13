@@ -22,7 +22,7 @@
 
     <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
       <div class="card">
-      <form action ="/editprofile" method ="post" enctype="multipart/form-data">
+      <form action ="/edit" method ="post" enctype="multipart/form-data">
         @csrf
         <!-- Account page navigation-->
         <div class="row">

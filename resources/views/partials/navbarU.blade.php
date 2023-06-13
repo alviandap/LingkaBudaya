@@ -43,7 +43,7 @@
             @can('admin')
             <li><a href="/admin" style="--i: 0.05s;">Mode Admin</a></li>
             @endcan
-            <li><a href="/editprofile" style="--i: 0.05s;">Pengaturan Profile</a></li>
+            <li><a href="/edit" style="--i: 0.05s;">Pengaturan Profile</a></li>
             <li><a href="/dashboard" style="--i: 0.05s;">Home</a></li>
             <li><a href="/categories" style="--i: 0.05s;">Pembelajaran</a></li>
             <li><a href="/testimonials" style="--i: 0.05s;">testimonials</a></li>

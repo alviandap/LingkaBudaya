@@ -19,8 +19,8 @@ class DashboardCategoryController extends Controller
     {
         $this->authorize('admin');
         return view('admin.category.index', [
-            // 'categories' => Category::all()
-            'categories' => Category::all()->orderBy('name', 'asc')
+            'categories' => Category::all()
+            // 'categories' => Category::all()->orderBy('name', 'asc')
         ]);
     }
 

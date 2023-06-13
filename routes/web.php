@@ -64,8 +64,8 @@ Route::get('/testi', function () {
 
 
 
-Route::get('/editprofile', [ProfileController::class, 'index']);
-Route::post('/editprofile', [ProfileController::class, 'update']);
+Route::get('/edit', [ProfileController::class, 'index']);
+Route::post('/edit', [ProfileController::class, 'update']);
 
 Route::put('/updatepassword', [UpdatePasswordController::class, 'update']);
 
